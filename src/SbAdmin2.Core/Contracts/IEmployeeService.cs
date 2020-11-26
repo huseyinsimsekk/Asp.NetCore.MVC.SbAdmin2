@@ -1,9 +1,9 @@
-﻿using SbAdmin2.Data.Models;
+﻿using SbAdmin2.Core.Models;
 using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace SbAdmin2.Service.Contracts
+namespace SbAdmin2.Core.Contracts
 {
     public interface IEmployeeService : IServiceBase<Employee>
     {

@@ -1,5 +1,6 @@
-﻿using SbAdmin2.Data.Models;
-using SbAdmin2.Service.Contracts;
+﻿
+using SbAdmin2.Core.Contracts;
+using SbAdmin2.Core.Models;
 using System;
 using System.Collections.Generic;
 using System.Text;

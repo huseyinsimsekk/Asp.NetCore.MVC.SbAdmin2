@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SbAdmin2.Service.Contracts
+namespace SbAdmin2.Core.Contracts
 {
     public interface IServiceBase<T> where T : class
     {

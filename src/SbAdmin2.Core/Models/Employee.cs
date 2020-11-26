@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace SbAdmin2.Data.Models
+namespace SbAdmin2.Core.Models
 {
     public class Employee
     {

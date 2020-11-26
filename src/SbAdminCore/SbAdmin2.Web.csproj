@@ -5,6 +5,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\SbAdmin2.Core\SbAdmin2.Core.csproj" />
     <ProjectReference Include="..\SbAdmin2.Service\SbAdmin2.Service.csproj" />
     <ProjectReference Include="..\SbAdmin2Core.Data\SbAdmin2.Data.csproj" />
   </ItemGroup>
