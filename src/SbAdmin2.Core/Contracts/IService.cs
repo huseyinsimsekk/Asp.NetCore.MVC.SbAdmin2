@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace SbAdmin2.Core.Contracts
 {
-    public interface IServiceBase<T> where T : class
+    public interface IService<T> where T : class
     {
         Task<IEnumerable<T>> GetAllAsync();
         Task<T> GetByIdAsync(int id);

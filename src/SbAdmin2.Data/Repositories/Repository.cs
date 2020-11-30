@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace SbAdmin2.Data.Repositories
 {
-    public class Repository<T> : IRepositoryBase<T> where T : class
+    public class Repository<T> : IRepository<T> where T : class
     {
         protected readonly MainContext _mainContext;
         private DbSet<T> _dbSet;

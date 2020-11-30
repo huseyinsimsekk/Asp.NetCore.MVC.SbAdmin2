@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace SbAdmin2.Service.Services
 {
-    public class EmployeeService : IEmployeeService
+    public class EmployeeService : IService<Employee>
     {
         public void Add(Employee model)
         {
