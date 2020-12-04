@@ -1,6 +1,9 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using SbAdmin2.Core.Contracts;
+using System;
 using System.Collections.Generic;
+using System.Linq;
+using System.Linq.Expressions;
 using System.Threading.Tasks;
 
 namespace SbAdmin2.Data.Repositories
@@ -32,6 +35,11 @@ namespace SbAdmin2.Data.Repositories
         public async Task<T> GetByIdAsync(int id)
         {
             return await _dbSet.FindAsync(id);
+        }
+
+        public IEnumerable<T> GetManyAsync(Func<T, bool> predicate)
+        {
+            return _dbSet.Where(predicate);
         }
 
         public void Update(T model)
