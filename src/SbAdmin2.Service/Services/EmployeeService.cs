@@ -16,6 +16,11 @@ namespace SbAdmin2.Service.Services
         {
         }
 
+        public int ActiveEmployeeCount()
+        {
+            return _repository.GetManyAsync(m => !m.IsDeleted).Count();
+        }
+
         public decimal SumSalary(Func<Employee, bool> predicate)
         {
             return _repository.GetManyAsync(predicate).Sum(m => m.Salary);

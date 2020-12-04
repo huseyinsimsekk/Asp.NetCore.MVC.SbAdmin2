@@ -10,5 +10,6 @@ namespace SbAdmin2.Core.Contracts
     public interface IEmployeeService : IService<Employee>
     {
         decimal SumSalary(Func<Employee, bool> predicate);
+        int ActiveEmployeeCount();
     }
 }
