@@ -13,6 +13,7 @@ namespace SbAdmin2.Core.Models
         public DateTime BeginDate { get; set; }
         public DateTime? EndDate { get; set; }
         public bool IsDeleted { get; set; }
+        public int Gender { get; set; }
 
     }
 }

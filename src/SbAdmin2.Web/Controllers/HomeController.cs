@@ -5,6 +5,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
+using SbAdmin2.Core.Contracts;
 using SbAdminCore.Models;
 
 namespace SbAdminCore.Controllers
@@ -12,14 +13,16 @@ namespace SbAdminCore.Controllers
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
-
-        public HomeController(ILogger<HomeController> logger)
+        private readonly IEmployeeService _employeeService;
+        public HomeController(ILogger<HomeController> logger, IEmployeeService employeeService)
         {
             _logger = logger;
+            _employeeService = employeeService;
         }
 
-        public IActionResult Index()
+        public async Task<IActionResult> Index()
         {
+            var model = await _employeeService.GetAllAsync();
             return View();
         }
 
