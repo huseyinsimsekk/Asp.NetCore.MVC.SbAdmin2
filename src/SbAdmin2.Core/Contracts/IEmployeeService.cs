@@ -11,5 +11,7 @@ namespace SbAdmin2.Core.Contracts
     {
         decimal SumSalary(Func<Employee, bool> predicate);
         int ActiveEmployeeCount();
+        int InactiveEmployeeCount();
+        int Process();
     }
 }
