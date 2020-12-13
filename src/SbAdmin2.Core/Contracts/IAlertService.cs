@@ -11,5 +11,6 @@ namespace SbAdmin2.Core.Contracts
         Task<IEnumerable<Alert>> GetAllAsync();
         IEnumerable<Alert> GetManyAsync(Func<Alert, bool> expression);
         Task<Alert> GetByIdAsync(int id);
+        int ActiveAlertCount();
     }
 }
