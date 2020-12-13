@@ -31,7 +31,7 @@ namespace SbAdmin2.Service.Services
             return await _repository.GetByIdAsync(id);
         }
 
-        public IEnumerable<Alert> GetManyAsync(Func<Alert, bool> expression)
+        public IEnumerable<Alert> GetMany(Func<Alert, bool> expression)
         {
             return _repository.GetManyAsync(expression);
         }

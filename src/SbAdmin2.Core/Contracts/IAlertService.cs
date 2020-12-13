@@ -9,7 +9,7 @@ namespace SbAdmin2.Core.Contracts
     public interface IAlertService
     {
         Task<IEnumerable<Alert>> GetAllAsync();
-        IEnumerable<Alert> GetManyAsync(Func<Alert, bool> expression);
+        IEnumerable<Alert> GetMany(Func<Alert, bool> expression);
         Task<Alert> GetByIdAsync(int id);
         int ActiveAlertCount();
     }

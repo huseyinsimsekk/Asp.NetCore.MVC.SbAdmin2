@@ -14,9 +14,9 @@
     <h6 class="dropdown-header">
         Alerts Center
     </h6>
-    @foreach (var item in Alert.GetManyAsync(m => !m.IsDeleted))
+    @foreach (var item in Alert.GetMany(m => !m.IsDeleted))
     {
-        <a class="dropdown-item d-flex align-items-center" href="#">
+        <a class="dropdown-item d-flex align-items-center" asp-action="Detail" asp-controller="Alert" asp-route-id="1">
             <div class="mr-3">
                 <div class="icon-circle bg-primary">
                     <i class="fas fa-file-alt text-white"></i>
@@ -28,5 +28,5 @@
             </div>
         </a>
     }
-    <a class="dropdown-item text-center small text-gray-500" href="#">Show All Alerts</a>
+    <a class="dropdown-item text-center small text-gray-500" asp-action="Index" asp-controller="Alert">Show All Alerts</a>
 </div>

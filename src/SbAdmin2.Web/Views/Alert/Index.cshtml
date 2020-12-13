@@ -1,0 +1,16 @@
+﻿@model IEnumerable<Alert>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Alerts</h1>
+<ol>
+    @foreach (var item in Model)
+    {
+        <li>
+            <a asp-controller="Alert" asp-action="Detail" asp-route-id="@item.Id">@item.Title</a>
+        </li>
+    }
+</ol>
+

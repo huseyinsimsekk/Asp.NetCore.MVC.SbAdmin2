@@ -19,5 +19,9 @@ namespace SbAdmin2.Web.Controllers
             var employees = await _employeeService.GetAllAsync();
             return View(employees);
         }
+        public IActionResult Add()
+        {
+            return View();
+        }
     }
 }
