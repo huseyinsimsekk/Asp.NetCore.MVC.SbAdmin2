@@ -12,6 +12,7 @@ namespace SbAdmin2.Data
         public MainContext(DbContextOptions<MainContext> dbContext) : base(dbContext) { }
 
         public DbSet<Employee> Employees { get; set; }
+        public DbSet<Alert> Alerts { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
