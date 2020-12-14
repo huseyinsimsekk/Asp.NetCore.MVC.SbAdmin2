@@ -30,6 +30,12 @@
                 var newBgColor = 'bg-gradient-' + this.id;
                 $("#accordionSidebar").removeAttr('class');
                 $('#accordionSidebar').addClass("navbar-nav sidebar sidebar-dark accordion " + newBgColor);
+                $.ajax({
+                    type: "POST",
+                    dataType: 'json',
+                    url: '@Url.Action("SaveThemeColor")' ,
+                    data: { themeColor: newBgColor }
+                });
             });
         });
     </script>
