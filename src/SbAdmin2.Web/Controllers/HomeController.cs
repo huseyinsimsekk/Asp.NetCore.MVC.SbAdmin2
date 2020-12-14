@@ -6,11 +6,12 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using SbAdmin2.Core.Contracts;
+using SbAdmin2.Web.Controllers;
 using SbAdminCore.Models;
 
 namespace SbAdminCore.Controllers
 {
-    public class HomeController : Controller
+    public class HomeController : MainController
     {
         private readonly IEmployeeService _employeeService;
         public HomeController(IEmployeeService employeeService)

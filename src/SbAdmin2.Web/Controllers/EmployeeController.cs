@@ -7,7 +7,7 @@ using SbAdmin2.Core.Contracts;
 
 namespace SbAdmin2.Web.Controllers
 {
-    public class EmployeeController : Controller
+    public class EmployeeController : MainController
     {
         private readonly IEmployeeService _employeeService;
         public EmployeeController(IEmployeeService employeeService)

@@ -7,7 +7,7 @@ using SbAdmin2.Core.Contracts;
 
 namespace SbAdmin2.Web.Controllers
 {
-    public class AlertController : Controller
+    public class AlertController : MainController
     {
         private IAlertService _alertService;
         public AlertController(IAlertService alertService)
