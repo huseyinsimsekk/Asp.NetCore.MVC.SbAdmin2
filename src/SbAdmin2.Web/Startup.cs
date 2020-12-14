@@ -30,8 +30,8 @@ namespace SbAdminCore
             services.AddScoped(typeof(IRepository<>), typeof(Repository<>));
 
             services.AddCustomServices();
-            
-            services.AddControllersWithViews();
+
+            services.AddControllersWithViews().AddRazorRuntimeCompilation();
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
