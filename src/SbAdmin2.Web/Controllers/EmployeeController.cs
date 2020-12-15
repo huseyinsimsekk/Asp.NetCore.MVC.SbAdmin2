@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using SbAdmin2.Core.Contracts;
+using SbAdmin2.Core.Models;
 
 namespace SbAdmin2.Web.Controllers
 {
@@ -21,7 +22,18 @@ namespace SbAdmin2.Web.Controllers
         }
         public IActionResult Add()
         {
-            return View();
+            var model = new Employee();
+            model.BeginDate = DateTime.Now;
+            return View(model);
+        }
+        [HttpPost]
+        public IActionResult Add(Employee model)
+        {
+            if (ModelState.IsValid)
+            {
+                _employeeService.Add(model);
+            }
+            return View(model);
         }
     }
 }

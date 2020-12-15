@@ -15,7 +15,7 @@ namespace SbAdmin2.Service.Services
         }
         public void Add(T model)
         {
-            throw new NotImplementedException();
+            _repository.Add(model);
         }
 
         public void Delete(T model)
