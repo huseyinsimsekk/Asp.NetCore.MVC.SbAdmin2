@@ -29,6 +29,12 @@ namespace SbAdminCore.Controllers
         {
             return View();
         }
+        public JsonResult GetData()
+        {
+            // Get request in site.js and send data in here. 
+            int[] data = new int[] { 0, 10000, 5000, 15000, 10000, 8000, 15000, 20000, 10000, 15000, 25000, 17500 };
+            return Json(data);
+        }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
