@@ -3,22 +3,29 @@
     ViewData["Title"] = "Add";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-<div class="card mb-4 py-3 border-left-@ViewBag.ThemeColor">
-    <div class="card-body">
+<div class="card mb-4 col-md-6 py-3 border-left-@ViewBag.ThemeColor">
+    <div class="card-body ml-3">
         <form asp-controller="Employee" asp-action="Add" method="post">
             <div class="form-group">
                 <label asp-for="Name"></label>
-                <input asp-for="Name" type="text" class="form-control col-md-6" placeholder="Enter Employee Name">
+                <input asp-for="Name" type="text" class="form-control col-md-10" placeholder="Enter Employee Name">
             </div>
             <div class="form-group">
                 <label asp-for="LastName"></label>
-                <input asp-for="LastName" type="text" class="form-control col-md-6" placeholder="Enter Employee Lastname">
+                <input asp-for="LastName" type="text" class="form-control col-md-10" placeholder="Enter Employee Lastname">
+            </div>
+            <div class="form-group">
+                <label asp-for="Gender"></label>
+                <select class="form-control col-md-10">
+                    <option>1</option>
+                    <option>2</option>
+                    <option>3</option>
+                </select>
             </div>
             <div class="form-group">
                 <label asp-for="Salary"></label>
-                <input asp-for="Salary" type="number" class="form-control col-md-6" placeholder="Enter Salary">
+                <input asp-for="Salary" type="number" class="form-control col-md-10" placeholder="Enter Salary">
             </div>
-
             <button type="submit" class="btn btn-primary">Submit</button>
         </form>
     </div>
