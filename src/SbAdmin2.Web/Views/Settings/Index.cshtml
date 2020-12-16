@@ -27,9 +27,9 @@
     <script>
         $(function () {
             $('.change-color').on('click', function () {
-                var newBgColor = 'bg-gradient-' + this.id;
+                var newBgColor = this.id;
                 $("#accordionSidebar").removeAttr('class');
-                $('#accordionSidebar').addClass("navbar-nav sidebar sidebar-dark accordion " + newBgColor);
+                $('#accordionSidebar').addClass("navbar-nav sidebar sidebar-dark accordion bg-gradient-" + newBgColor);
                 $.ajax({
                     type: "POST",
                     dataType: 'json',

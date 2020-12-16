@@ -15,7 +15,7 @@ namespace SbAdmin2.Web.Controllers
             var themeColor = HttpContext.Session.GetString("ThemeColor");
             if (themeColor == null)
             {
-                ViewBag.ThemeColor = "bg-gradient-primary";
+                ViewBag.ThemeColor = "primary";
             }
             else
             {

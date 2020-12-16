@@ -3,32 +3,23 @@
     ViewData["Title"] = "Add";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-
-<div class="col-lg-6">
-    <div class="p-5">
-        @*<div class="text-center">
-            <h1 class="h4 text-gray-900 mb-4">Welcome Back!</h1>
-        </div>*@
-        <form class="user" asp-controller="Employee" asp-action="Add" method="post">
+<div class="card mb-4 py-3 border-left-@ViewBag.ThemeColor">
+    <div class="card-body">
+        <form asp-controller="Employee" asp-action="Add" method="post">
             <div class="form-group">
-                <input asp-for="Name" type="text" class="form-control form-control-user" placeholder="Enter Employee Name">
+                <label asp-for="Name"></label>
+                <input asp-for="Name" type="text" class="form-control col-md-6" placeholder="Enter Employee Name">
+            </div>
+            <div class="form-group">
+                <label asp-for="LastName"></label>
+                <input asp-for="LastName" type="text" class="form-control col-md-6" placeholder="Enter Employee Lastname">
+            </div>
+            <div class="form-group">
+                <label asp-for="Salary"></label>
+                <input asp-for="Salary" type="number" class="form-control col-md-6" placeholder="Enter Salary">
             </div>
 
-            <div class="form-group">
-                <input asp-for="LastName" type="text" class="form-control form-control-user" placeholder="Enter Employee Lastname">
-            </div>
-            @* Add datetime plugin *@
-            @*<div class="form-group">
-                <input asp-for="BeginDate" type="datetime" class="form-control form-control-user" id="exampleInputEmail" placeholder="Enter Employee Begin Date">
-            </div>*@
-            
-            <div class="form-group">
-                <input asp-for="Salary" type="number" class="form-control form-control-user" placeholder="Salary">
-            </div>
-
-            <button type="submit" class="btn btn-primary btn-user btn-block">
-                <i class="fab fa-user-circle fa-fw"></i> Add Employee
-            </button>
+            <button type="submit" class="btn btn-primary">Submit</button>
         </form>
     </div>
 </div>
