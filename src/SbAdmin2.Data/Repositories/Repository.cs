@@ -20,8 +20,6 @@ namespace SbAdmin2.Data.Repositories
         public void Add(T model)
         {
             _dbSet.Add(model);
-            // add unitofwork
-            _mainContext.SaveChanges();
         }
 
         public void Delete(T model)

@@ -1,5 +1,6 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
 using SbAdmin2.Core.Contracts;
+using SbAdmin2.Data;
 using SbAdmin2.Service.Services;
 using System;
 using System.Collections.Generic;
@@ -12,6 +13,7 @@ namespace SbAdmin2.Web.Extensions
     {
         public static void AddCustomServices(this IServiceCollection services)
         {
+            services.AddScoped<IUnitOfWork, UnitOfWork>();
             services.AddScoped<IEmployeeService, EmployeeService>();
             services.AddScoped<IAlertService, AlertService>();
         }

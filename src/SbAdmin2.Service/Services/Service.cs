@@ -9,18 +9,22 @@ namespace SbAdmin2.Service.Services
     public class Service<T> : IService<T> where T : class
     {
         public IRepository<T> _repository;
-        public Service(IRepository<T> repository)
+        private IUnitOfWork _unitOfWork;
+        public Service(IRepository<T> repository, IUnitOfWork unitOfWork)
         {
             _repository = repository;
+            _unitOfWork = unitOfWork;
         }
         public void Add(T model)
         {
             _repository.Add(model);
+            _unitOfWork.Commit();
         }
 
         public void Delete(T model)
         {
-            throw new NotImplementedException();
+            _repository.Delete(model);
+            _unitOfWork.Commit();
         }
 
         public async Task<IEnumerable<T>> GetAllAsync()
@@ -29,14 +33,16 @@ namespace SbAdmin2.Service.Services
             return entities;
         }
 
-        public Task<T> GetByIdAsync(int id)
+        public async Task<T> GetByIdAsync(int id)
         {
-            throw new NotImplementedException();
+            var entity = await _repository.GetByIdAsync(id);
+            return entity;
         }
 
         public void Update(T model)
         {
-            throw new NotImplementedException();
+            _repository.Update(model);
+            _unitOfWork.Commit();
         }
     }
 }

@@ -12,7 +12,7 @@ namespace SbAdmin2.Service.Services
 {
     public class EmployeeService : Service<Employee>, IEmployeeService
     {
-        public EmployeeService(IRepository<Employee> repository) : base(repository)
+        public EmployeeService(IRepository<Employee> repository, IUnitOfWork unitOfWork) : base(repository, unitOfWork)
         {
         }
 
