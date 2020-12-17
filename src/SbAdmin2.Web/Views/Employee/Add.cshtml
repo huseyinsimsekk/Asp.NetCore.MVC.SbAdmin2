@@ -3,6 +3,60 @@
     ViewData["Title"] = "Add";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/css/bootstrap-datepicker.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/2.3.2/css/bootstrap-responsive.css">
+<style>
+
+    .datepicker {
+        background-color: #fff;
+        border: none
+    }
+
+    .datepicker-dropdown {
+        top: 0;
+        left: 0
+    }
+
+    .datepicker table tr td.today,
+    span.focused {
+        border-radius: 50% !important
+    }
+
+    .dow,
+    .old-day,
+    .day,
+    .new-day {
+        width: 40px !important;
+        height: 40px !important;
+        border-radius: 0px !important
+    }
+
+        .old-day:hover,
+        .day:hover,
+        .new-day:hover,
+        .month:hover,
+        .year:hover,
+        .decade:hover,
+        .century:hover {
+            border-radius: 50% !important;
+            background-color: #eee
+        }
+    .prev,
+    .next,
+    .datepicker-switch {
+        border-radius: 0 !important;
+        padding: 20px 10px !important;
+        text-transform: uppercase;
+        font-size: 20px;
+        opacity: 0.8
+    }
+
+        .prev:hover,
+        .next:hover,
+        .datepicker-switch:hover {
+            opacity: 1
+        }
+</style>
 <div class="card mb-4 col-md-6 py-3 border-left-@ViewBag.ThemeColor">
     <div class="card-body ml-3">
         <form asp-controller="Employee" asp-action="Add" method="post">
@@ -16,11 +70,17 @@
             </div>
             <div class="form-group">
                 <label asp-for="Gender"></label>
-                <select class="form-control col-md-10">
-                    <option>1</option>
-                    <option>2</option>
-                    <option>3</option>
+                <select asp-for="Gender" class="form-control col-md-10">
+                    <option value="1">Female</option>
+                    <option value="2">Male</option>
                 </select>
+            </div>
+            <div class="form-group">
+                <label asp-for="BeginDate"></label>
+                <div class="datepicker date input-group p-0 shadow-sm col-md-10">
+                    <input asp-for="BeginDate" type="datetime" placeholder="Choose a date" class="form-control py-4 px-4" id="reservationDate">
+                    <div class="input-group-append"><span class="input-group-text px-4"><i class="fa fa-calendar"></i></span></div>
+                </div>
             </div>
             <div class="form-group">
                 <label asp-for="Salary"></label>
@@ -30,3 +90,16 @@
         </form>
     </div>
 </div>
+
+@section scripts{
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.js"></script>
+    <script>
+        $(function () {
+            $('.datepicker').datepicker({
+                format: 'dd-mm-yyyy',
+                todayHighlight: true,
+                toggleActive: true
+            });
+        });
+    </script>
+}
