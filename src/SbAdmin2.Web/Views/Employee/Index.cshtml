@@ -6,7 +6,7 @@
 
 <div class="card shadow mb-4">
     <div class="card-header py-3">
-        <h6 class="m-0 font-weight-bold text-primary">DataTables Example</h6>
+        <h6 class="m-0 font-weight-bold text-primary">All Employee List:</h6>
     </div>
     <div class="card-body">
         <div class="table-responsive">
@@ -15,9 +15,10 @@
                     <tr>
                         <th>Name</th>
                         <th>Last Name</th>
-                        <th>Start Date</th>
-                        <th>End Date</th>
                         <th>Salary</th>
+                        <th>State</th>
+                        <th>Start Date</th>
+                        <th></th>
                     </tr>
                 </thead>
                 <tbody>
@@ -26,9 +27,22 @@
                         <tr>
                             <td>@item.Name</td>
                             <td>@item.LastName</td>
-                            <td>@item.BeginDate.ToShortDateString()</td>
-                            <td>@(item.EndDate.HasValue?item.EndDate.Value.ToShortDateString():"Active")</td>
                             <td>$@item.Salary</td>
+                            <td>
+                                @if (item.IsDeleted)
+                                {
+                                    <span class="badge badge-danger badge-pill">Deleted</span>
+                                }
+                                else
+                                {
+                                    <span class="badge badge-primary badge-pill">Active</span>
+                                }
+                            </td>
+                            <td>@item.BeginDate.ToShortDateString()</td>
+                            <td class="text-center" style="width:15%">
+                                <a asp-controller="Employee" asp-action="Update" asp-route-id="@item.Id" class="btn btn-outline-primary">Update</a>
+                                <a asp-controller="Employee" asp-action="Delete" asp-route-id="@item.Id" class="btn btn-outline-danger">Delete</a>
+                            </td>
                         </tr>
                     }
                 </tbody>

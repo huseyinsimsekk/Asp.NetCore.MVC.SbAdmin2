@@ -35,5 +35,20 @@ namespace SbAdmin2.Web.Controllers
             }
             return View(model);
         }
+        public IActionResult Update()
+        {
+            var model = new Employee();
+            model.BeginDate = DateTime.Now;
+            return View(model);
+        }
+        [HttpPut]
+        public IActionResult Update(Employee model)
+        {
+            if (ModelState.IsValid)
+            {
+                _employeeService.Add(model);
+            }
+            return View(model);
+        }
     }
 }
