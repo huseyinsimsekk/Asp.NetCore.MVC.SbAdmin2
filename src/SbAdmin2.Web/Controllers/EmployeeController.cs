@@ -27,28 +27,36 @@ namespace SbAdmin2.Web.Controllers
             return View(model);
         }
         [HttpPost]
-        public IActionResult Add(Employee model)
+        public async Task<IActionResult> Add(Employee model)
         {
             if (ModelState.IsValid)
             {
-                _employeeService.Add(model);
+                await _employeeService.AddAsync(model);
+                return RedirectToAction("Index", "Employee");
             }
             return View(model);
         }
-        public IActionResult Update()
+        public async Task<IActionResult> Update(int id)
         {
-            var model = new Employee();
-            model.BeginDate = DateTime.Now;
+            var model = await _employeeService.GetByIdAsync(id);
+
             return View(model);
         }
-        [HttpPut]
+        [HttpPost]
         public IActionResult Update(Employee model)
         {
             if (ModelState.IsValid)
             {
-                _employeeService.Add(model);
+                _employeeService.Update(model);
             }
             return View(model);
+        }
+        public JsonResult Delete(int id)
+        {
+            var employee = _employeeService.GetByIdAsync(id).Result;
+            _employeeService.Delete(employee);
+            // will edit as soon as possible time
+            return Json("");
         }
     }
 }

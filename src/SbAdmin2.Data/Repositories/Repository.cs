@@ -17,9 +17,9 @@ namespace SbAdmin2.Data.Repositories
             _mainContext = mainContext;
             _dbSet = _mainContext.Set<T>();
         }
-        public void Add(T model)
+        public async Task AddAsync(T model)
         {
-            _dbSet.Add(model);
+            await _dbSet.AddAsync(model);
         }
 
         public void Delete(T model)

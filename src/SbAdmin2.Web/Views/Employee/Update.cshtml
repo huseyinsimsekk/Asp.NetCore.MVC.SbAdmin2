@@ -1,11 +1,13 @@
 ﻿@model Employee
+
 @{
-    ViewData["Title"] = "Add";
+    ViewData["Title"] = "Update";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
+
 <div class="card mb-4 col-md-6 py-3 border-left-@ViewBag.ThemeColor">
     <div class="card-body ml-3">
-        <form asp-controller="Employee" asp-action="Add" method="post" role="form">
+        <form asp-controller="Employee" asp-action="Update" method="post" role="form">
             <partial name="_AddOrUpdate" />
         </form>
     </div>

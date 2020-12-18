@@ -15,10 +15,10 @@ namespace SbAdmin2.Service.Services
             _repository = repository;
             _unitOfWork = unitOfWork;
         }
-        public void Add(T model)
+        public async Task AddAsync(T model)
         {
-            _repository.Add(model);
-            _unitOfWork.Commit();
+           await _repository.AddAsync(model);
+           await _unitOfWork.CommitAsync();
         }
 
         public void Delete(T model)

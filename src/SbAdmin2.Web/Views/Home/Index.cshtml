@@ -2,7 +2,7 @@
     ViewData["Title"] = "Dashboard";
 }
 
-@await Html.PartialAsync("~/Views/Shared/Badges/_Badges.cshtml")
+<partial name="~/Views/Shared/Badges/_Badges.cshtml" />
 
 <div class="row">
 
@@ -144,15 +144,15 @@
                 </div>
                 <p>
                     This is an example which is the development with Asp.Net Core MVC and Sb Admin 2 UI. In this project, some components added. For More, You can check out the official repository.
-                <a target="_blank" rel="nofollow" href="https://startbootstrap.com/previews/sb-admin-2">
-                    Sb Admin 2 &rarr;
-                </a>
+                    <a target="_blank" rel="nofollow" href="https://startbootstrap.com/previews/sb-admin-2">
+                        Sb Admin 2 &rarr;
+                    </a>
                 </p>
             </div>
         </div>
 
     </div>
 </div>
-@section Scripts{ 
+@section Scripts{
     <script src="~/js/chart-demo.js"></script>
 } 

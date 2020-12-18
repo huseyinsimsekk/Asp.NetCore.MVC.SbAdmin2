@@ -9,7 +9,7 @@ namespace SbAdmin2.Core.Contracts
     {
         Task<IEnumerable<T>> GetAllAsync();
         Task<T> GetByIdAsync(int id);
-        void Add(T model);
+        Task AddAsync(T model);
         void Delete(T model);
         void Update(T model);
     }

@@ -23,7 +23,7 @@ namespace SbAdminCore.Controllers
 
         public async Task<IActionResult> Index()
         {
-            _logger.LogInfo("Project up. Request home/index");
+            //_logger.LogInfo("Project up. Request home/index");
             var model = await _employeeService.GetAllAsync();
             return View();
         }
@@ -34,7 +34,7 @@ namespace SbAdminCore.Controllers
         }
         public JsonResult GetData()
         {
-            // Get request in site.js and send data in here. 
+            // Get request in chart-demo.js and send data in here. 
             int[] data = new int[] { 0, 10000, 5000, 15000, 10000, 8000, 15000, 20000, 10000, 15000, 25000, 17500 };
             return Json(data);
         }
