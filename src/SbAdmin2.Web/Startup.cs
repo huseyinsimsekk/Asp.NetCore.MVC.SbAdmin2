@@ -5,10 +5,13 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using NLog;
 using SbAdmin2.Core.Contracts;
 using SbAdmin2.Data;
 using SbAdmin2.Data.Repositories;
 using SbAdmin2.Web.Extensions;
+using System;
+using System.IO;
 
 namespace SbAdminCore
 {
@@ -16,6 +19,7 @@ namespace SbAdminCore
     {
         public Startup(IConfiguration configuration)
         {
+            LogManager.LoadConfiguration(String.Concat(Directory.GetCurrentDirectory(), "/nlog.config")); // Edit nlog.config file own config
             Configuration = configuration;
         }
 

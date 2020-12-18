@@ -16,6 +16,7 @@ namespace SbAdmin2.Web.Extensions
             services.AddScoped<IUnitOfWork, UnitOfWork>();
             services.AddScoped<IEmployeeService, EmployeeService>();
             services.AddScoped<IAlertService, AlertService>();
+            services.AddSingleton<ILoggerService, LoggerService>();
         }
     }
 }
