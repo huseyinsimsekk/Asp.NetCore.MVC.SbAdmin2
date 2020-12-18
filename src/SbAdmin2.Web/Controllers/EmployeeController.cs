@@ -56,7 +56,7 @@ namespace SbAdmin2.Web.Controllers
             var employee = _employeeService.GetByIdAsync(id).Result;
             _employeeService.Delete(employee);
             // will edit as soon as possible time
-            return Json("");
+            return Json("sucess");
         }
     }
 }
