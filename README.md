@@ -6,7 +6,7 @@ The aim of this repository is to sample all components in Sb Admin 2 in an Asp.N
 - [X] Separate Layers
 - [X] EntityFramework using Postgresql Database
 - [X] Develop example of Entity Services
-- [ ] Full example all SbAdmin2 component
+- [X] Full example all SbAdmin2 component
 - [ ] Deploy on a cloud provider such as Heroku, or Azure
 - [ ] Add login using IdentityServer
 - [ ] Create a package
