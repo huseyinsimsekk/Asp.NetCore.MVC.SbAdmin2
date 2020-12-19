@@ -16,7 +16,7 @@
     </h6>
     @foreach (var item in Alert.GetMany(m => !m.IsDeleted))
     {
-        <a class="dropdown-item d-flex align-items-center" asp-action="Detail" asp-controller="Alert" asp-route-id="1">
+        <a class="dropdown-item d-flex align-items-center" asp-action="Detail" asp-controller="Alert" asp-route-id="@item.Id">
             <div class="mr-3">
                 <div class="icon-circle bg-primary">
                     <i class="fas fa-file-alt text-white"></i>
