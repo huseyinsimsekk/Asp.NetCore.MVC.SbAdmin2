@@ -3,17 +3,15 @@
     ViewData["Title"] = "Alerts";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-<div class="card">
+<div class="card col-md-6">
     <div class="card-body">
         <div class="card-text">
-            <ol>
+            <div class="list-group">
                 @foreach (var item in Model)
                 {
-                    <li>
-                        <a asp-controller="Alert" asp-action="Detail" asp-route-id="@item.Id">@item.Title</a>
-                    </li>
+                    <a asp-controller="Alert" asp-action="Detail" asp-route-id="@item.Id" class="list-group-item list-group-item-action">@item.Title</a>
                 }
-            </ol>
+            </div>
         </div>
     </div>
 </div>
