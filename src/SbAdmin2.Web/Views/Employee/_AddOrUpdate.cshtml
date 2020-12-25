@@ -72,8 +72,10 @@
 </div>
 <div class="form-group">
     <label asp-for="BeginDate"></label>
+    
     <div class="datepicker date input-group p-0 shadow-sm col-md-10">
-        <input asp-for="BeginDate" type="datetime" placeholder="Choose a date" class="form-control py-4 px-4" id="reservationDate">
+        @Html.TextBoxFor(m => m.BeginDate, string.Format("{{0:{0}}}", "dd-MM-yyyy"), new { @class = "form-control", @readonly = "readonly", @placeholder = "dsdfd" })
+
         <div class="input-group-append"><span class="input-group-text px-4"><i class="fa fa-calendar"></i></span></div>
     </div>
 </div>
