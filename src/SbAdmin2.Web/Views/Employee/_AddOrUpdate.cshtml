@@ -74,8 +74,7 @@
     <label asp-for="BeginDate"></label>
     
     <div class="datepicker date input-group p-0 shadow-sm col-md-10">
-        @Html.TextBoxFor(m => m.BeginDate, string.Format("{{0:{0}}}", "dd-MM-yyyy"), new { @class = "form-control", @readonly = "readonly", @placeholder = "dsdfd" })
-
+        @Html.TextBoxFor(m => m.BeginDate, string.Format("{{0:{0}}}", "dd-MM-yyyy"), new { @class = "form-control", @readonly = "readonly", @placeholder = "Choose a date" })
         <div class="input-group-append"><span class="input-group-text px-4"><i class="fa fa-calendar"></i></span></div>
     </div>
 </div>
