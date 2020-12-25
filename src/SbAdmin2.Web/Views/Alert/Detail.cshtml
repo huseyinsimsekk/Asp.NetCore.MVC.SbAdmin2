@@ -9,6 +9,16 @@
         <h6 class="m-0 font-weight-bold text-primary">@Model.Title</h6>
     </div>
     <div class="card-body">
-        <p>@Model.Description</p> 
+        <p>@Model.Description</p>
+    </div>
+    <div class="card-footer">
+        <div class="col-md-12 text-right">
+            <a asp-action="Index" asp-controller="Alert" class="btn btn-primary btn-icon-split">
+                <span class="icon">
+                    <i class="fas fa-arrow-right"></i>
+                </span>
+                <span class="text">For All Alerts</span>
+            </a>
+        </div>
     </div>
 </div>
