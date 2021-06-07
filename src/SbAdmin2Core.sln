@@ -9,7 +9,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SbAdmin2.Data", "SbAdmin2.D
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SbAdmin2.Service", "SbAdmin2.Service\SbAdmin2.Service.csproj", "{26387009-C29C-499C-83C3-0495B51B405C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SbAdmin2.Core", "SbAdmin2.Core\SbAdmin2.Core.csproj", "{5628E562-F889-43F8-B662-A2883C1B72A9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SbAdmin2.Core", "SbAdmin2.Core\SbAdmin2.Core.csproj", "{5628E562-F889-43F8-B662-A2883C1B72A9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SbAdmin2.Test", "SbAdmin2.Test\SbAdmin2.Test.csproj", "{51500156-5960-4106-B86E-ED1A21DFAD6D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +35,10 @@ Global
 		{5628E562-F889-43F8-B662-A2883C1B72A9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5628E562-F889-43F8-B662-A2883C1B72A9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5628E562-F889-43F8-B662-A2883C1B72A9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{51500156-5960-4106-B86E-ED1A21DFAD6D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{51500156-5960-4106-B86E-ED1A21DFAD6D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{51500156-5960-4106-B86E-ED1A21DFAD6D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{51500156-5960-4106-B86E-ED1A21DFAD6D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
