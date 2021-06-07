@@ -55,7 +55,19 @@ namespace SbAdmin2.Test
         [Fact]
         public async Task Detail_ShouldReturnNotFound_WhenIdIsNotFound()
         {
-            var result = await _alertController.Detail(1);
+            Alert alert = null;
+            _alertMock.Setup(m => m.GetByIdAsync(0)).ReturnsAsync(alert);
+            var result = await _alertController.Detail(0);
+            var notFoundResult = Assert.IsType<NotFoundResult>(result);
+            Assert.Equal<int>(404, notFoundResult.StatusCode);
+        }
+        [Theory]
+        [InlineData(1)]
+        public async Task Detail_ShouldReturnValue_WhenIdIsFound(int id)
+        {
+            Alert alert = _alerts.FirstOrDefault(m => m.Id == id);
+            _alertMock.Setup(m => m.GetByIdAsync(id)).ReturnsAsync(alert);
+            var result = await _alertController.Detail(id);
             Assert.IsType<ViewResult>(result);
         }
     }
