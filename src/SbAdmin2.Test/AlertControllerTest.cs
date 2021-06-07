@@ -32,6 +32,7 @@ namespace SbAdmin2.Test
             var result = _alertController.Index();
             Assert.IsType<ViewResult>(result);
         }
+
         [Fact]
         public void Index_ShouldReturnAlertList_WhenExecute()
         {
@@ -44,10 +45,15 @@ namespace SbAdmin2.Test
             Assert.Equal<int>(3, alertList.Count());
         }
 
-
-
         [Fact]
         public async Task Detail_ShouldReturnView_WhenExecute()
+        {
+            var result = await _alertController.Detail(1);
+            Assert.IsType<ViewResult>(result);
+        }
+
+        [Fact]
+        public async Task Detail_ShouldReturnNotFound_WhenIdIsNotFound()
         {
             var result = await _alertController.Detail(1);
             Assert.IsType<ViewResult>(result);

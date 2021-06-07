@@ -23,6 +23,10 @@ namespace SbAdmin2.Web.Controllers
         public async Task<IActionResult> Detail(int id)
         {
             var alert = await _alertService.GetByIdAsync(id);
+            if (alert==null)
+            {
+                return NotFound();
+            }
             return View(alert);
         }
     }
