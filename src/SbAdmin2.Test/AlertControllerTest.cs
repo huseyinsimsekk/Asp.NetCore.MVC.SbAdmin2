@@ -44,6 +44,16 @@ namespace SbAdmin2.Test
 
             Assert.Equal<int>(3, alertList.Count());
         }
+        [Fact]
+        public void Index_ShouldReturnNotFound_WhenNotFoundModel()
+        {
+            List<Alert> alerts = null;
+            _alertMock.Setup(m => m.GetMany(It.IsAny<Func<Alert, bool>>())).Returns(alerts);
+            var result = _alertController.Index();
+            var viewResult = Assert.IsType<NotFoundResult>(result);
+
+            Assert.Equal<int>(404, viewResult.StatusCode);
+        }
 
         [Fact]
         public async Task Detail_ShouldReturnView_WhenExecute()
@@ -61,6 +71,7 @@ namespace SbAdmin2.Test
             var notFoundResult = Assert.IsType<NotFoundResult>(result);
             Assert.Equal<int>(404, notFoundResult.StatusCode);
         }
+
         [Theory]
         [InlineData(1)]
         public async Task Detail_ShouldReturnValue_WhenIdIsFound(int id)

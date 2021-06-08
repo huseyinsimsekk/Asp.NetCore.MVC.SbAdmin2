@@ -17,16 +17,15 @@ namespace SbAdmin2.Web.Controllers
         public IActionResult Index()
         {
             var alerts = _alertService.GetMany(m => !m.IsDeleted);
+            if (alerts == null) return NotFound();
             return View(alerts);
         }
 
         public async Task<IActionResult> Detail(int id)
         {
             var alert = await _alertService.GetByIdAsync(id);
-            if (alert==null)
-            {
-                return NotFound();
-            }
+            if (alert == null) return NotFound();
+            
             return View(alert);
         }
     }

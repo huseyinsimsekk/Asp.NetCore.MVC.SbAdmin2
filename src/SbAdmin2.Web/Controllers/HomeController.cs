@@ -13,22 +13,7 @@ namespace SbAdminCore.Controllers
 {
     public class HomeController : MainController
     {
-        private readonly IEmployeeService _employeeService;
-        private readonly ILoggerService _logger;
-        public HomeController(IEmployeeService employeeService, ILoggerService logger)
-        {
-            _employeeService = employeeService;
-            _logger = logger;
-        }
-
-        public async Task<IActionResult> Index()
-        {
-            //_logger.LogInfo("Project up. Request home/index");
-            var model = await _employeeService.GetAllAsync();
-            return View();
-        }
-
-        public IActionResult Privacy()
+        public IActionResult Index()
         {
             return View();
         }
