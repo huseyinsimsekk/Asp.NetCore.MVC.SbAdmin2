@@ -55,10 +55,14 @@ namespace SbAdmin2.Test
             Assert.Equal<int>(404, viewResult.StatusCode);
         }
 
-        [Fact]
-        public async Task Detail_ShouldReturnView_WhenExecute()
+        [Theory]
+        [InlineData(1)]
+        public async Task Detail_ShouldReturnView_WhenExecute(int id)
         {
-            var result = await _alertController.Detail(1);
+            var alert = _alerts.First(m => m.Id == id);
+            _alertMock.Setup(m => m.GetByIdAsync(id)).ReturnsAsync(alert);
+            var result = await _alertController.Detail(id);
+
             Assert.IsType<ViewResult>(result);
         }
 
