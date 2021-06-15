@@ -22,9 +22,7 @@ namespace SbAdmin2.Web.Controllers
         }
         public IActionResult Add()
         {
-            var model = new Employee();
-            model.BeginDate = DateTime.Now;
-            return View(model);
+            return View();
         }
         [HttpPost]
         public async Task<IActionResult> Add(Employee model)
