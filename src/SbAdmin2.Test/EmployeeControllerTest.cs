@@ -71,5 +71,40 @@ namespace SbAdmin2.Test
             _employeeMock.Verify(v => v.AddAsync(It.IsAny<Employee>()), Times.Once);
             Assert.Equal(_employees.First().Id, employee.Id);
         }
+
+        [Fact]
+        public async void Update_ShouldRedirectToIndex_WhenIdIsNull()
+        {
+            int? id = null;
+            var result = await _employeeController.Update(id);
+            var redirectToResult = Assert.IsType<RedirectToActionResult>(result);
+            Assert.Equal("Index", redirectToResult.ActionName);
+            Assert.Equal("Employee", redirectToResult.ControllerName);
+        }
+
+        [Theory]
+        [InlineData(1212)]
+        public async void Update_ShouldReturnNotFound_WhenIdIsNotFound(int id)
+        {
+            Employee employee = null;
+            _employeeMock.Setup(x => x.GetByIdAsync(id)).ReturnsAsync(employee);
+            var result = await _employeeController.Update(id);
+
+            Assert.IsType<NotFoundResult>(result);
+        }
+
+        [Theory]
+        [InlineData(1)]
+        public async void Update_ShouldReturnView_WhenIdIsFound(int id)
+        {
+            var employee = _employees.First(m => m.Id == id);
+            _employeeMock.Setup(x => x.GetByIdAsync(id)).ReturnsAsync(employee);
+            var result = await _employeeController.Update(id);
+            var viewResult = Assert.IsType<ViewResult>(result);
+            Assert.IsType<Employee>(viewResult.Model);
+            var model = Assert.IsAssignableFrom<Employee>(viewResult.Model);
+            Assert.Equal(employee.Id, model.Id);
+        }
+
     }
 }

@@ -34,9 +34,11 @@ namespace SbAdmin2.Web.Controllers
             }
             return View(model);
         }
-        public async Task<IActionResult> Update(int id)
+        public async Task<IActionResult> Update(int? id)
         {
-            var model = await _employeeService.GetByIdAsync(id);
+            if (!id.HasValue) return RedirectToAction("Index", "Employee");
+            var model = await _employeeService.GetByIdAsync(id.Value);
+            if (model is null) return NotFound();
 
             return View(model);
         }
