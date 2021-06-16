@@ -48,14 +48,14 @@ namespace SbAdmin2.Web.Controllers
             if (ModelState.IsValid)
             {
                 _employeeService.Update(model);
+                return RedirectToAction("Index", "Employee");
             }
             return View(model);
         }
-        public JsonResult Delete(int id)
+        public async Task<JsonResult> Delete(int id)
         {
-            var employee = _employeeService.GetByIdAsync(id).Result;
+            var employee = await _employeeService.GetByIdAsync(id);
             _employeeService.Delete(employee);
-            // will edit as soon as possible time
             return Json("sucess");
         }
     }
