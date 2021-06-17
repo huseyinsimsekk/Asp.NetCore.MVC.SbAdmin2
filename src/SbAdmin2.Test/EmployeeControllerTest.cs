@@ -105,6 +105,30 @@ namespace SbAdmin2.Test
             var model = Assert.IsAssignableFrom<Employee>(viewResult.Model);
             Assert.Equal(employee.Id, model.Id);
         }
-
+        [Fact]
+        public void Update_ShouldReturnView_WhenModelStateIsNotValid()
+        {
+            Employee employee = null;
+            _employeeController.ModelState.AddModelError("Name", "Is Required");
+            var result = _employeeController.Update(employee);
+            Assert.IsType<ViewResult>(result);
+        }
+        [Fact]
+        public void Update_ShouldRedirectToAction_WhenModelStateIsValid()
+        {
+            Employee employee = _employees.First();
+            var result = _employeeController.Update(employee);
+            var redirect = Assert.IsType<RedirectToActionResult>(result);
+            Assert.Equal("Index", redirect.ActionName);
+            Assert.Equal("Employee", redirect.ControllerName);
+        } 
+        [Fact]
+        public void Update_ShouldExecute_WhenModelStateIsValid()
+        {
+            Employee employee = _employees.First(x=>x.Id==1);
+            _employeeMock.Setup(x => x.Update(employee));
+            var result = _employeeController.Update(employee);
+            _employeeMock.Verify(x => x.Update(It.IsAny<Employee>()), Times.Once);
+        }
     }
 }
