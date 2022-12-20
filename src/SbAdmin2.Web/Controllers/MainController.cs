@@ -12,15 +12,7 @@ namespace SbAdmin2.Web.Controllers
     {
         public override void OnActionExecuted(ActionExecutedContext context)
         {
-            var themeColor = HttpContext.Session.GetString("ThemeColor");
-            if (themeColor == null)
-            {
-                ViewBag.ThemeColor = "primary";
-            }
-            else
-            {
-                ViewBag.ThemeColor = themeColor;
-            }
+            ViewBag.ThemeColor = HttpContext.Session.GetString("ThemeColor") ?? "primary";
         }
     }
 }

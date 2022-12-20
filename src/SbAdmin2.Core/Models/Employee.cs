@@ -5,9 +5,8 @@ using System.Text;
 
 namespace SbAdmin2.Core.Models
 {
-    public class Employee
+    public class Employee : BaseModel
     {
-        public int Id { get; set; }
         [Required]
         public string Name { get; set; }
         [Required]
@@ -17,7 +16,6 @@ namespace SbAdmin2.Core.Models
         [Required]
         public DateTime BeginDate { get; set; }
         public DateTime? EndDate { get; set; }
-        public bool IsDeleted { get; set; }
         [Required]
         public int Gender { get; set; }
 

@@ -22,7 +22,6 @@ namespace SbAdmin2.Web.Controllers
         [HttpPost]
         public JsonResult SaveThemeColor(string themeColor)
         {
-            //ViewBag.ThemeColor = themeColor ?? "bg-gradient-primary";
             _session.SetString("ThemeColor", themeColor);
             return Json(new { Msg = "success" });
         }
